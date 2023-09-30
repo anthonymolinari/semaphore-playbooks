@@ -3,8 +3,21 @@
 - hosts: suse
   become: true
   tasks:
-    - name: update zypper packages
+    - name: refresh repos & update packages
+      zypper:
+        name: "*"
+        state: present
+        update_cache: true
+
+
+    - name: update all packages
       zypper:
         name: "*"
         state: latest
-        update_cache: true
+
+    - name: apply patches
+      zypper:
+        name: "*"
+        state: latest
+        type: patch
+
