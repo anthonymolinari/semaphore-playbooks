@@ -1,0 +1,10 @@
+---
+
+- hosts: suse
+  become: true
+  tasks:
+    - name: update zypper packages
+      zypper:
+        name: "*"
+        state: latest
+        update_cache: true
