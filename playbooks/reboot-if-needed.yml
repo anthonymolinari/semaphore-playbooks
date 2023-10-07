@@ -10,7 +10,9 @@
       register: do-reboot
 
     - name: notify w/ discord
-      url: "{{ discord_webhook_url }}"
-        body: '{"content": "do reboot on host"}'
+      uri:
+        url: "{{ discord_webhook_url }}"
+        body: "{'content': 'do reboot on host'}"
         method: POST
       when: do-reboot.stat.exists
+
