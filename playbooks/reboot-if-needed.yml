@@ -1,6 +1,5 @@
 ---
 
-# https://discordapp.com/api/webhooks/1160271802795298848/1_FUeStspacbUng7EtEiHKZ7QdilynJ9hY7eGT-hmYQhnZ2OSMxLGIhGdOhrrPgnS6Mr
 
 - hosts: all
   become: true
