@@ -1,0 +1,10 @@
+---
+
+- hosts: ubuntu
+  become: true
+  tasks:
+    - name: apt dist upgrade
+      apt:
+        update_cache: yes
+        upgrade: 'dist'
+

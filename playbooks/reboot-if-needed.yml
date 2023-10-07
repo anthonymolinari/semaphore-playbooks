@@ -1,0 +1,10 @@
+---
+
+- hosts: all
+  become: true
+  tasks:
+    - name: check if reboot required
+
+    - name: notify w/ discord
+
+    - name: confirm restart
