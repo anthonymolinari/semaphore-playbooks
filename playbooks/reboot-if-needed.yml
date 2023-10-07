@@ -12,6 +12,6 @@
     - name: notify w/ discord
       uri:
         url: "{{ discord_webhook_url }}"
-        body: "{'content': 'do reboot on host'}"
+        body: "{'content': 'do reboot on host: {{ inventory_host }}'}"
         method: POST
-      when: do_reboot.stat.exists
+      
