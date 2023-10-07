@@ -1,10 +1,17 @@
 ---
 
+# https://discordapp.com/api/webhooks/1160271802795298848/1_FUeStspacbUng7EtEiHKZ7QdilynJ9hY7eGT-hmYQhnZ2OSMxLGIhGdOhrrPgnS6Mr
+
 - hosts: all
   become: true
   tasks:
     - name: check if reboot required
+      stat:
+        path: /var/run/reboot-required
+      register: do-reboot
 
     - name: notify w/ discord
-
-    - name: confirm restart
+      url: "{{ discord_webhook_url }}"
+      body: '{"content": "do reboot on host"}'
+      method: POST
+      when: do-reboot.stat.exists
