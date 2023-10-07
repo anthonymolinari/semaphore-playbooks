@@ -12,6 +12,11 @@
     - name: notify w/ discord
       uri:
         url: "{{ discord_webhook_url }}"
-        body: "{'content': 'do reboot on host: {{ inventory_hostname }}'}"
+        body: "{'content': 'do reboot on host'}"
         method: POST
-      
+      when: do_reboot
+
+    - name: perform reboot
+      reboot:
+        reboot_timeout: 3600
+      when: do_reboot
